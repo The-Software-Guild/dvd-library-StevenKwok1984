@@ -187,34 +187,4 @@ public class DvdLibraryView {
     }
 
 
-
-    /*
-    public String displayDvds(Map<String, Dvd> filteredDvds) {
-        if (filteredDvds.isEmpty()) {
-            io.print("No DVDs to display");
-        } else {
-            String dvdHeadings = String.format("%25s | %12s | %4s | %17s | %7s | %25s",
-                    "Title",
-                    "Release Date",
-                    "MPAA",
-                    "Director Name",
-                    "Rating",
-                    "Studio");
-            io.print(dvdHeadings);
-            io.print("-----------------------------------------------------------------------------------------------------------------");
-            filteredDvds.values().stream()
-                    .forEach((Dvd) -> io.print(String.format("%25s | %12s | %4s | %17s | %7s | %25s",
-                            Dvd.getTitle(),
-                            Dvd.getReleaseDate(),
-                            Dvd.getMpaaRating(),
-                            Dvd.getDirectorName(),
-                            Dvd.getUserRating(),
-                            Dvd.getStudio())));
-        }
-        return io.readString("Please hit enter to continue");
-
-    }
-
-     */
-
 }

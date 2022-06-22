@@ -15,6 +15,6 @@ public class App {
         DvdLibraryDao myDao = new DvdLibraryDaoFileImpl();
         DvdLibraryController controller = new DvdLibraryController(myDao, myView);
 
-        controller.run();;
+        controller.run();
     }
 }
