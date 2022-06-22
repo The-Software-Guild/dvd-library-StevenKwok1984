@@ -69,6 +69,7 @@ public class DvdLibraryController {
     private void listDvds() throws DvdLibraryDaoException {
         view.displayDvdListBanner();
         List<Dvd> dvdList = dao.getAllDvds();
+        view.displayDvdList(dvdList);
     }
     private void getDvd() throws DvdLibraryDaoException {
         view.displayDisplayDvdBanner();
