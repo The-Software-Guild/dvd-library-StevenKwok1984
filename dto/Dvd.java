@@ -12,7 +12,9 @@ public class Dvd {
     private String userRating;
     private String studio;
 
+    // Coonstructors
     public Dvd(String title) {
+        this.title = title;
     }
 
     // Methods
@@ -30,6 +32,41 @@ public class Dvd {
         return hash;
     }
 
+    //Equals and HashCode  - I can now assert on whole DVD objects to check their equality with another
+    //DVD object
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Dvd other = (Dvd) obj;
+        if (!Objects.equals(this.title, other.title)) {
+            return false;
+        }
+        if (!Objects.equals(this.mpaaRating, other.mpaaRating)) {
+            return false;
+        }
+        if (!Objects.equals(this.directorName, other.directorName)) {
+            return false;
+        }
+        if (!Objects.equals(this.userRating, other.userRating)) {
+            return false;
+        }
+        if (!Objects.equals(this.studio, other.studio)) {
+            return false;
+        }
+        if (!Objects.equals(this.releaseDate, other.releaseDate)) {
+            return false;
+        }
+        return true;
+    }
+
     //the default toString onyl really serialises the objects class name and hashcode, not useful.
     //Overriding this method can allow us to print out all of the object's property values instead,
     //which allows for much faster insight into issues when reading test logs
@@ -41,6 +78,7 @@ public class Dvd {
     // getters and setters
 
     public String getTitle() {
+
         return title;
     }
 
