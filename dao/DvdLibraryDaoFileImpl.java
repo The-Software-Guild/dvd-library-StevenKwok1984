@@ -1,9 +1,6 @@
 package dao;
 import dto.Dvd;
 
-import dto.Dvd;
-
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.*;
 import java.io.*;
@@ -36,6 +33,76 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
         return newDvd;
     }
 
+    @Override
+    public Dvd removeDvd(String title) throws DvdLibraryDaoException {
+        loadLib();
+        Dvd removedDvd = dvds.remove(title);
+        writeLibrary();
+        return removedDvd;
+    }
+
+    // show dvds
+    @Override
+    public  List<Dvd> getAllDvds() throws DvdLibraryDaoException{
+        loadLib();
+        return new ArrayList(dvds.values());
+    }
+
+    @Override
+    public Dvd getDvd(String title) throws DvdLibraryDaoException {
+        loadLib();
+        return dvds.get(title);
+    }
+
+    @Override
+    public Dvd changeReleaseDate(String title, LocalDate releaseDate)throws DvdLibraryDaoException {
+        loadLib();
+        return dvds.get(title);
+    }
+
+    @Override
+    public  Dvd changeMpaaRating(String title, String mappRating) throws DvdLibraryDaoException {
+        loadLib();
+        Dvd dvdToEdit = dvds.get(title);
+        dvdToEdit.setMpaaRating(mappRating);
+        writeLibrary();
+        return dvdToEdit;
+    }
+
+    @Override
+    public Dvd changeDirectorName(String title, String directorName) throws DvdLibraryDaoException {
+        loadLib();
+        Dvd dvdToEdit = dvds.get(title);
+        dvdToEdit.setDirectorName(directorName);
+        writeLibrary();
+        return dvdToEdit;
+    }
+
+    @Override
+    public Dvd changeStudioName(String title, String studioName) throws DvdLibraryDaoException {
+        loadLib();
+        Dvd dvdToEdit = dvds.get(title);
+        dvdToEdit.setStudio(studioName);
+        writeLibrary();
+        return dvdToEdit;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*
       Load and Write Lib session
      */
@@ -47,8 +114,7 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
             sc = new Scanner(
                     new BufferedReader(new FileReader(LIBRARY_FILE)));
         } catch (FileNotFoundException e) {
-            throw new DvdLibraryDaoException(
-                    "-_- Could not load roster data into memory.", e);
+            throw new DvdLibraryDaoException("-_- Could not load roster data into memory.", e);
         }
 
         String currentLine;
