@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 public interface DvdLibraryDao {
+    Dvd addDvd(String title, Dvd dvd) throws DvdLibraryDaoException;
+
+    Dvd removeDvd(String title) throws DvdLibraryDaoException;
 
     Dvd changeReleaseDate(String title, Date releaseDate) throws DvdLibraryDaoException;
 
