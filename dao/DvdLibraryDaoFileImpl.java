@@ -79,6 +79,15 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
     }
 
     @Override
+    public Dvd changeUserRating(String title, String userRating) throws DvdLibraryDaoException {
+        loadLib();
+        Dvd dvdToEdit = dvds.get(title);
+        dvdToEdit.setUserRating(userRating);
+        writeLibrary();
+        return dvdToEdit;
+    }
+
+    @Override
     public Dvd changeStudioName(String title, String studioName) throws DvdLibraryDaoException {
         loadLib();
         Dvd dvdToEdit = dvds.get(title);
@@ -86,17 +95,6 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
         writeLibrary();
         return dvdToEdit;
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

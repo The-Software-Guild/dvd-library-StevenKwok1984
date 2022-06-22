@@ -19,8 +19,7 @@ public class DvdLibraryView {
         io.print("3. Edit a DVD");
         io.print("4. List all DVDS ");
         io.print("5. Display DVD information");
-        io.print("6. Find DVDs");
-        io.print("7. Exit");
+        io.print("6. Exit");
 
         return io.readInt("Please select from the above choices.", 1,7);
     }
@@ -156,7 +155,7 @@ public class DvdLibraryView {
         io.print("DVD Successfully edited.");
     }
 
-    public String getMappRating() {
+    public String getMpaaRating() {
         return io.readString("Entre the new user rating");
     }
 
@@ -177,17 +176,10 @@ public class DvdLibraryView {
         io.print(errorMsg);
     }
 
-    public void displayFindDvdsBanner() {
-        io.print("=== Find DVDS ===");
-    }
 
-    public int printFindMenuAndGetSelection() {
-        io.print("Find DVD menu");
-        io.print("1. Find DVD by title");
-        io.print("2. Exit find DVD menu");
-        return io.readInt("Please select from the above choices.", 1,2);
-    }
 
+
+    /*
     public String displayDvds(Map<String, Dvd> filteredDvds) {
         if (filteredDvds.isEmpty()) {
             io.print("No DVDs to display");
@@ -213,5 +205,7 @@ public class DvdLibraryView {
         return io.readString("Please hit enter to continue");
 
     }
+
+     */
 
 }

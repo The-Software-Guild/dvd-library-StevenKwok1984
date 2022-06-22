@@ -25,4 +25,6 @@ public interface DvdLibraryDao {
 
     Dvd getDvd(String title) throws DvdLibraryDaoException;
 
+
+    Dvd changeUserRating(String title, String newUserRating) throws DvdLibraryDaoException;
 }
