@@ -84,7 +84,7 @@ public class DvdLibraryView {
         io.print("=== Display DVD ===");
     }
     public String getDvdTitleChoice() {
-        return io.readString("Plese enter the DVD title.");
+        return io.readString("Enter the DVD title.");
     }
     public void displayDvd(Dvd dvd) {
         if (dvd != null) {
@@ -96,7 +96,7 @@ public class DvdLibraryView {
             io.print("User rating: " + dvd.getUserRating());
             io.print("Studio: "+ dvd.getStudio());
         } else {
-            io.print("No such DVD");
+            displayNullDvd();
         }
         io.print("Please hit enter to continue.");
     }
@@ -109,7 +109,7 @@ public class DvdLibraryView {
         if (dvdRecord != null) {
             io.print("DVD successfully removed.");
         } else {
-            io.print("No such DVD.");
+            displayNullDvd();
         }
         io.readString("Please hit enter to continue.");
     }
@@ -124,6 +124,7 @@ public class DvdLibraryView {
     }
 
     public void displayEditDvdBanner() {
+
         io.print("=== Edit DVD ===");
     }
 
@@ -143,18 +144,74 @@ public class DvdLibraryView {
         io.print("=== Edit DVD Release Date ===");
     }
 
+    public void displayNullDvd(){
+        io.print("No such DVD. ");
+    }
 
+    public LocalDate getReleaseDate() {
+        return io.readDate("Enter the new DVD release date.");
+    }
 
+    public void displayEditResult() {
+        io.print("DVD Successfully edited.");
+    }
 
+    public String getMappRating() {
+        return io.readString("Entre the new user rating");
+    }
 
+    public String getDirectorName() {
+        return io.readString("Enter the new director's name.");
+    }
 
+    public String getUserRating() {
+        return io.readString("Enter the new user rating.");
+    }
 
+    public String getStudioName() {
+        return io.readString("Enter the studio name.");
+    }
 
+    public void displayErrorMessage(String errorMsg) {
+        io.print("=== ERROR ===");
+        io.print(errorMsg);
+    }
 
+    public void displayFindDvdsBanner() {
+        io.print("=== Find DVDS ===");
+    }
 
+    public int printFindMenuAndGetSelection() {
+        io.print("Find DVD menu");
+        io.print("1. Find DVD by title");
+        io.print("2. Exit find DVD menu");
+        return io.readInt("Please select from the above choices.", 1,2);
+    }
 
+    public String displayDvds(Map<String, Dvd> filteredDvds) {
+        if (filteredDvds.isEmpty()) {
+            io.print("No DVDs to display");
+        } else {
+            String dvdHeadings = String.format("%25s | %12s | %4s | %17s | %7s | %25s",
+                    "Title",
+                    "Release Date",
+                    "MPAA",
+                    "Director Name",
+                    "Rating",
+                    "Studio");
+            io.print(dvdHeadings);
+            io.print("-----------------------------------------------------------------------------------------------------------------");
+            filteredDvds.values().stream()
+                    .forEach((Dvd) -> io.print(String.format("%25s | %12s | %4s | %17s | %7s | %25s",
+                            Dvd.getTitle(),
+                            Dvd.getReleaseDate(),
+                            Dvd.getMpaaRating(),
+                            Dvd.getDirectorName(),
+                            Dvd.getUserRating(),
+                            Dvd.getStudio())));
+        }
+        return io.readString("Please hit enter to continue");
 
-
-
+    }
 
 }
