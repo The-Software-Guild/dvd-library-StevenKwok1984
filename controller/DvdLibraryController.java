@@ -85,10 +85,17 @@ public class DvdLibraryController {
         view.displayDvd(dvd);
     }
     private void removeDvd() throws DvdLibraryDaoException {
+        int removeTimes = view.getNumOfTime();
         view.displayRemoveDvdBanner();
-        String title = view.getDvdTitleChoice();
-        Dvd removedDvd = dao.removeDvd(title);
-        view.displayRemoveResult(removedDvd);
+
+        for (int i = 0; i < removeTimes; i++) {
+            String title = view.getDvdTitleChoice();
+            Dvd removedDvd = dao.removeDvd(title);
+            view.displayRemoveResult(removedDvd);
+            if ( i < removeTimes-1) {
+                view.nextOne();
+            }
+        }
     }
     private void exitMessage() {
         view.displayExitBanner();
@@ -101,6 +108,8 @@ public class DvdLibraryController {
     Dvd Edit method
      */
     private void editDvd() throws DvdLibraryDaoException {
+        int editingTimes = view.getNumOfTime();
+
         view.displayEditDvdBanner();
         String title = view.getDvdTitleChoice();
         Dvd dvdToEdit = dao.getDvd(title);
@@ -108,35 +117,40 @@ public class DvdLibraryController {
             view.displayNullDvd();
         } else {
             view.displayDvd(dvdToEdit);
-            int editMenuSelection = 0;
-            boolean continueUsing = true;
+            for (int i = 0; i < editingTimes; i++) {
+                int editMenuSelection = 0;
+                boolean continueUsing = true;
 
-            while (continueUsing) {
-                editMenuSelection = view.printEditMenuForSelection();
+                while (continueUsing) {
+                    editMenuSelection = view.printEditMenuForSelection();
 
-                switch(editMenuSelection) {
-                    case 1:
-                        editReleaseDate(title);
+                    switch (editMenuSelection) {
+                        case 1:
+                            editReleaseDate(title);
+                            break;
+                        case 2:
+                            editMpaaRating(title);
+                        case 3:
+                            editDirectorName(title);
+                            break;
+                        case 4:
+                            editUserRating(title);
+                            break;
+                        case 5:
+                            editStudioName(title);
+                            break;
+                        case 6:
+                            continueUsing = false;
+                            break;
+                        default:
+                            unknownCommand();
+                    }
+                    if (continueUsing == false) {
                         break;
-                    case 2:
-                        editMpaaRating(title);
-                    case 3:
-                        editDirectorName(title);
-                        break;
-                    case 4:
-                        editUserRating(title);
-                        break;
-                    case 5:
-                        editStudioName(title);
-                        break;
-                    case 6:
-                        continueUsing = false;
-                        break;
-                    default:
-                        unknownCommand();
+                    }
                 }
-                if (continueUsing == false) {
-                    break;
+                if (i < editingTimes - 1) {
+                    view.nextOne();
                 }
             }
         }
