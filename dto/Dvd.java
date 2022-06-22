@@ -1,6 +1,6 @@
 package dto;
 
-import java.util.Date;
+import java.util.*;
 
 public class Dvd {
     //DVD properties
@@ -15,6 +15,19 @@ public class Dvd {
     }
 
     // Methods
+
+    // override hashCode just in case
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 37 * hash + Objects.hashCode(this.title);
+        hash = 37 * hash + Objects.hashCode(this.releaseDate);
+        hash = 37 * hash + Objects.hashCode(this.mpaaRating);
+        hash = 37 * hash + Objects.hashCode(this.directorName);
+        hash = 37 * hash + Objects.hashCode(this.userRating);
+        hash = 37 * hash + Objects.hashCode(this.studio);
+        return hash;
+    }
 
     //the default toString onyl really serialises the objects class name and hashcode, not useful.
     //Overriding this method can allow us to print out all of the object's property values instead,
