@@ -3,7 +3,6 @@ package ui;
 import dto.Dvd;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 public class DvdLibraryView {
@@ -28,7 +27,7 @@ public class DvdLibraryView {
     public Dvd getNewDvdInfo() {
         String title = io.readString("Enter the DVD title");
         LocalDate releaseDate = io.readDate("Enter the DVD release date");
-        String mpaaRating = io.readString("Enter the MPAA rating");
+        String MpaaRating = io.readString("Enter the MPAA rating");
         String directorName = io.readString("Enter the director's name");
         String userRating = io.readString("Enter your rating of the DVD");
         String studio = io.readString("Enter the DVD studio");
@@ -36,11 +35,10 @@ public class DvdLibraryView {
         //Instantiating a new DVD object using the title to satisfy the constructors requirements
         Dvd currentDvd = new Dvd(title);
         currentDvd.setReleaseDate(releaseDate);
-        currentDvd.setMpaaRating(mpaaRating);
+        currentDvd.setMpaaRating(MpaaRating);
         currentDvd.setDirectorName(directorName);
         currentDvd.setUserRating(userRating);
         currentDvd.setStudio(studio);
-        // return DVD for further action
         return currentDvd;
     }
 

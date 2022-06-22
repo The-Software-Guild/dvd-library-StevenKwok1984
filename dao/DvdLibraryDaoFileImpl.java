@@ -18,9 +18,7 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
     }
 
     // For testing
-    public DvdLibraryDaoFileImpl(String libraryTextFile) {
-        LIBRARY_FILE = libraryTextFile;
-    }
+    // public DvdLibraryDaoFileImpl(String libraryTextFile) {LIBRARY_FILE = libraryTextFile;}
 
     @Override
     public Dvd addDvd(String title, Dvd dvd) throws DvdLibraryDaoException {
@@ -29,7 +27,7 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
         // add new DVD to HashMap
         Dvd newDvd = dvds.put(title, dvd);
         // writes all the DVDs in the DVD library out to a LIBRARY_FILE.
-        writeLibrary();
+        writeLib();
         return newDvd;
     }
 
@@ -37,7 +35,7 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
     public Dvd removeDvd(String title) throws DvdLibraryDaoException {
         loadLib();
         Dvd removedDvd = dvds.remove(title);
-        writeLibrary();
+        writeLib();
         return removedDvd;
     }
 
@@ -65,7 +63,7 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
         loadLib();
         Dvd dvdToEdit = dvds.get(title);
         dvdToEdit.setMpaaRating(mappRating);
-        writeLibrary();
+        writeLib();
         return dvdToEdit;
     }
 
@@ -74,7 +72,7 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
         loadLib();
         Dvd dvdToEdit = dvds.get(title);
         dvdToEdit.setDirectorName(directorName);
-        writeLibrary();
+        writeLib();
         return dvdToEdit;
     }
 
@@ -83,7 +81,7 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
         loadLib();
         Dvd dvdToEdit = dvds.get(title);
         dvdToEdit.setUserRating(userRating);
-        writeLibrary();
+        writeLib();
         return dvdToEdit;
     }
 
@@ -92,7 +90,7 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
         loadLib();
         Dvd dvdToEdit = dvds.get(title);
         dvdToEdit.setStudio(studioName);
-        writeLibrary();
+        writeLib();
         return dvdToEdit;
     }
 
@@ -128,27 +126,29 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
         sc.close();
     }
 
-    private void writeLibrary() throws  DvdLibraryDaoException {
-        PrintWriter output;
+    private void writeLib() throws  DvdLibraryDaoException {
+        // We are translating the IOException to an application specific exception
+        //and then simple throwing it i.e. reporting it to the code that called us.
+
+        PrintWriter out;
 
         try {
-            output = new PrintWriter(new FileWriter(LIBRARY_FILE));
+            out = new PrintWriter(new FileWriter(LIBRARY_FILE));
         } catch (IOException e) {
             throw new DvdLibraryDaoException("Could not save DVD data",e);
         }
-        // create properties required
         String dvdAsText;
         List <Dvd> dvdList = this.getAllDvds();
-
-        for(Dvd currentDvd : dvdList) {
-            // turn a Dvd into a String
+        for (Dvd currentDvd : dvdList) {
+            //turn a DVD into a string
             dvdAsText = marshallDvd(currentDvd);
-            // write the DVD object to the file
-            output.println(dvdAsText);
-            output.flush();
+            //write the DVD object to to the file;
+            out.println(dvdAsText);
+            //force PrintWriter to write line to the file
+            out.flush();
         }
-        // clean up
-        output.close();
+        //Clean up
+        out.close();
 
     }
 
@@ -162,7 +162,6 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
         dvdAsText += aDvd.getDirectorName() + DELIMITER;
         dvdAsText += aDvd.getUserRating() + DELIMITER;
         dvdAsText += aDvd.getStudio();
-        // return for writing into text file
         return dvdAsText;
     }
 

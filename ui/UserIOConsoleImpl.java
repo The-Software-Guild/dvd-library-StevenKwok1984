@@ -117,7 +117,7 @@ public class UserIOConsoleImpl implements UserIO{
     @Override
     public LocalDate readDate (String prompt) {
         LocalDate date = null;
-        boolean validInput = true;
+        boolean validInput;
 
         do {
             try {
@@ -126,6 +126,7 @@ public class UserIOConsoleImpl implements UserIO{
                 // Obtain user input, and convert it to local date
                 String stringDate = console.nextLine();
                 date = LocalDate.parse(stringDate);
+                validInput = true;
             } catch (DateTimeException e) {
                 this.print("Error: Please input the date in correct format");
                 validInput = false;
