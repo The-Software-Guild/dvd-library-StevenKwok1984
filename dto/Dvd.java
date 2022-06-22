@@ -1,11 +1,12 @@
 package dto;
 
+import java.time.LocalDate;
 import java.util.*;
 
 public class Dvd {
     //DVD properties
     private String title;
-    private Date releaseDate;
+    private LocalDate releaseDate;
     private String mpaaRating;
     private String directorName;
     private String userRating;
@@ -47,11 +48,11 @@ public class Dvd {
         this.title = title;
     }
 
-    public Date getReleaseDate() {
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(Date releaseDate) {
+    public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
     }
 
