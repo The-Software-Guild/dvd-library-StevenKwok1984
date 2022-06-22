@@ -11,6 +11,9 @@ public class Dvd {
     private String userRating;
     private String studio;
 
+    public Dvd(String title) {
+    }
+
     // Methods
 
     //the default toString onyl really serialises the objects class name and hashcode, not useful.
