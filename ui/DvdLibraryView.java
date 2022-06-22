@@ -4,6 +4,7 @@ import dto.Dvd;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class DvdLibraryView {
     private UserIO io;
@@ -176,6 +177,16 @@ public class DvdLibraryView {
         io.print(errorMsg);
     }
 
+    public int getNumOfTime() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Number of time for this action: ");
+        int times = sc.nextInt();
+        return times;
+    }
+
+    public void nextOne() {
+        System.out.println("=== Next One ===");
+    }
 
 
 

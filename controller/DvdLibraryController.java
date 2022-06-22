@@ -61,10 +61,17 @@ public class DvdLibraryController {
     }
 
     private void createDvd()throws DvdLibraryDaoException {
+        int addingTimes = view.getNumOfTime();
         view.displayCreateDvdBanner();
-        Dvd newDvd = view.getNewDvdInfo();
-        dao.addDvd(newDvd.getTitle(), newDvd);
-        view.displayCreateSuccessBanner();
+
+        for (int i = 0; i < addingTimes; i++) {
+            Dvd newDvd = view.getNewDvdInfo();
+            dao.addDvd(newDvd.getTitle(), newDvd);
+            view.displayCreateSuccessBanner();
+            if ( i < addingTimes-1) {
+                view.nextOne();
+            }
+        }
     }
     private void listDvds() throws DvdLibraryDaoException {
         view.displayDvdListBanner();
