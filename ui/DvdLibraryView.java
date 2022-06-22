@@ -76,6 +76,73 @@ public class DvdLibraryView {
         io.readString("Press enter to continue");
     }
 
+    public void displayDvdListBanner() {
+        io.print("=== Display all DVDs ===");
+    }
+
+    public void displayDisplayDvdBanner() {
+        io.print("=== Display DVD ===");
+    }
+    public String getDvdTitleChoice() {
+        return io.readString("Plese enter the DVD title.");
+    }
+    public void displayDvd(Dvd dvd) {
+        if (dvd != null) {
+            io.print("=== "+ dvd.getTitle()+" Summary ===");
+            io.print("Title: " + dvd.getTitle());
+            io.print("Release date: " + dvd.getReleaseDate());
+            io.print("MPAA rating: " + dvd.getMpaaRating());
+            io.print("Director's name: " + dvd.getDirectorName());
+            io.print("User rating: " + dvd.getUserRating());
+            io.print("Studio: "+ dvd.getStudio());
+        } else {
+            io.print("No such DVD");
+        }
+        io.print("Please hit enter to continue.");
+    }
+
+    public void displayRemoveDvdBanner() {
+        io.print("=== Remove DVD ===");
+    }
+
+    public void displayRemoveResult(Dvd dvdRecord) {
+        if (dvdRecord != null) {
+            io.print("DVD successfully removed.");
+        } else {
+            io.print("No such DVD.");
+        }
+        io.readString("Please hit enter to continue.");
+    }
+
+    public void displayExitBanner() {
+        io.print("Thank you for visiting the library.");
+        io.print("Hope to see you soon!");
+    }
+
+    public void displayUnknownCommandBanner() {
+        io.print("Unknown command!");
+    }
+
+    public void displayEditDvdBanner() {
+        io.print("=== Edit DVD ===");
+    }
+
+    public int printEditMenuForSelection() {
+        io.print("Which field do you want to change?");
+        io.print("Edit DVD menu");
+        io.print("1. Release date");
+        io.print("2. MPAA rating");
+        io.print("3. Director's name");
+        io.print("4. User rating");
+        io.print("5. Studio name");
+        io.print("6. Exit edit menu");
+        return io.readInt("Please select from the above choices.", 1,6);
+    }
+
+    public void displayEditReleaseDateBanner() {
+        io.print("=== Edit DVD Release Date ===");
+    }
+
 
 
 
