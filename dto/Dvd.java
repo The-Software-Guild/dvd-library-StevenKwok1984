@@ -5,17 +5,17 @@ import java.util.Date;
 public class Dvd {
     private String title;
     private Date releaseDate;
-    private String rating;
+    private String mpaaRating;
     private String directorName;
+    private String userRating;
     private String studio;
 
 
     // methods
     // Override the method toString
     @Override
-    public String toString() {
-        return "Dvd{" + "title=" + title + ", releaseDate=" + releaseDate + ", rating=" + rating + ", directorName=" +
-                directorName + ", studio=" + studio + '}';
+    public String toString(){
+        return "Dvd{" + "title=" + title + ", releaseDate=" + releaseDate + ", mpaaRating=" + mpaaRating + ", directorName=" + directorName + ", userRating=" + userRating + ", studio=" + studio + '}';
     }
 
     // getter and setters
@@ -37,12 +37,12 @@ public class Dvd {
         this.releaseDate = releaseDate;
     }
 
-    public String getRating() {
-        return rating;
+    public String getMpaaRating() {
+        return mpaaRating;
     }
 
-    public void setRating(String rating) {
-        this.rating = rating;
+    public void setMpaaRating(String mpaaRating) {
+        this.mpaaRating = mpaaRating;
     }
 
     public String getDirectorName() {
@@ -61,4 +61,11 @@ public class Dvd {
         this.studio = studio;
     }
 
+    public String getUserRating() {
+        return userRating;
+    }
+
+    public void setUserRating(String userRating) {
+        this.userRating = userRating;
+    }
 }
