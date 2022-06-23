@@ -97,6 +97,7 @@ public class DvdLibraryView {
             displayNullDvd();
         }
         io.print("Please hit enter to continue.");
+        System.out.println();
     }
 
     public void displayRemoveDvdBanner() {
