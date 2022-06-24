@@ -23,12 +23,12 @@ public class Dvd {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 37 * hash + Objects.hashCode(this.title);
-        hash = 37 * hash + Objects.hashCode(this.releaseDate);
-        hash = 37 * hash + Objects.hashCode(this.mpaaRating);
-        hash = 37 * hash + Objects.hashCode(this.directorName);
-        hash = 37 * hash + Objects.hashCode(this.userRating);
-        hash = 37 * hash + Objects.hashCode(this.studio);
+        hash = 31 * hash + Objects.hashCode(this.title);
+        hash = 31 * hash + Objects.hashCode(this.releaseDate);
+        hash = 31 * hash + Objects.hashCode(this.mpaaRating);
+        hash = 31 * hash + Objects.hashCode(this.directorName);
+        hash = 31 * hash + Objects.hashCode(this.userRating);
+        hash = 31 * hash + Objects.hashCode(this.studio);
         return hash;
     }
 
