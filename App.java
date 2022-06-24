@@ -1,10 +1,10 @@
-import controller.DvdLibraryController;
-import dao.DvdLibraryDao;
-import dao.DvdLibraryDaoException;
-import dao.DvdLibraryDaoFileImpl;
-import ui.DvdLibraryView;
-import ui.UserIO;
-import ui.UserIOConsoleImpl;
+import src.main.java.controller.DvdLibraryController;
+import src.main.dao.DvdLibraryDao;
+import src.main.dao.DvdLibraryDaoException;
+import src.main.dao.DvdLibraryDaoFileImpl;
+import src.main.ui.DvdLibraryView;
+import src.main.ui.UserIO;
+import src.main.ui.UserIOConsoleImpl;
 
 
 public class App {
