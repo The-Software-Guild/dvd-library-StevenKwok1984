@@ -1,4 +1,4 @@
-package src.main.dao;
+package dao;
 import src.main.dto.Dvd;
 
 import java.time.LocalDate;

@@ -1,4 +1,4 @@
-package src.main.dao;
+package dao;
 
 
 
