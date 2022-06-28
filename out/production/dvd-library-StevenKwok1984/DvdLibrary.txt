@@ -1,7 +1,0 @@
-ABC::2046-01-07::8::GoGVan::2::MThree
-The Shawshank Redemption::1995-02-17::15::Frank Darabont::9.3::Castle Rock Entertainment
-Mean Girls::2004-05-19::12A::Mark Waters::10::name
-The Big Short::2016-01-22::15::Adam McKay::7.9::Plan B Entertainment
-Schlinder's List::1994-02-18::15::Steven Spielberg::9.3::Amblin Entertainment
-Greenland::2021-02-05::15::Ric Roman Waugh::6.4::Thunder Road Pictures
-The Simpsons Movie::2007-07-27::PG-13::David Silverman::7.3::Rough Daft Studios
