@@ -19,53 +19,7 @@ public class Dvd {
 
     // Methods
 
-    // override hashCode just in case
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 31 * hash + Objects.hashCode(this.title);
-        hash = 31 * hash + Objects.hashCode(this.releaseDate);
-        hash = 31 * hash + Objects.hashCode(this.mpaaRating);
-        hash = 31 * hash + Objects.hashCode(this.directorName);
-        hash = 31 * hash + Objects.hashCode(this.userRating);
-        hash = 31 * hash + Objects.hashCode(this.studio);
-        return hash;
-    }
 
-    //Equals and HashCode  - I can now assert on whole DVD objects to check their equality with another
-    //DVD object
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Dvd other = (Dvd) obj;
-        if (!Objects.equals(this.title, other.title)) {
-            return false;
-        }
-        if (!Objects.equals(this.mpaaRating, other.mpaaRating)) {
-            return false;
-        }
-        if (!Objects.equals(this.directorName, other.directorName)) {
-            return false;
-        }
-        if (!Objects.equals(this.userRating, other.userRating)) {
-            return false;
-        }
-        if (!Objects.equals(this.studio, other.studio)) {
-            return false;
-        }
-        if (!Objects.equals(this.releaseDate, other.releaseDate)) {
-            return false;
-        }
-        return true;
-    }
 
     //the default toString onyl really serialises the objects class name and hashcode, not useful.
     //Overriding this method can allow us to print out all of the object's property values instead,
@@ -125,4 +79,56 @@ public class Dvd {
     public void setUserRating(String userRating) {
         this.userRating = userRating;
     }
+
+
+    /*
+    // override hashCode just in case
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 31 * hash + Objects.hashCode(this.title);
+        hash = 31 * hash + Objects.hashCode(this.releaseDate);
+        hash = 31 * hash + Objects.hashCode(this.mpaaRating);
+        hash = 31 * hash + Objects.hashCode(this.directorName);
+        hash = 31 * hash + Objects.hashCode(this.userRating);
+        hash = 31 * hash + Objects.hashCode(this.studio);
+        return hash;
+    }
+
+    //Equals and HashCode  - I can now assert on whole DVD objects to check their equality with another
+    //DVD object
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Dvd other = (Dvd) obj;
+        if (!Objects.equals(this.title, other.title)) {
+            return false;
+        }
+        if (!Objects.equals(this.mpaaRating, other.mpaaRating)) {
+            return false;
+        }
+        if (!Objects.equals(this.directorName, other.directorName)) {
+            return false;
+        }
+        if (!Objects.equals(this.userRating, other.userRating)) {
+            return false;
+        }
+        if (!Objects.equals(this.studio, other.studio)) {
+            return false;
+        }
+        if (!Objects.equals(this.releaseDate, other.releaseDate)) {
+            return false;
+        }
+        return true;
+    }
+
+     */
 }
