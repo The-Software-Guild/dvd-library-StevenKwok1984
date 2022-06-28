@@ -1,4 +1,4 @@
-package ui;
+package src.main.ui;
 
 import java.time.LocalDate;
 
