@@ -1,4 +1,4 @@
-package src.main.com.sg.dvdlibrary.dao;
+package src.main.dao;
 
 
 

@@ -1,9 +1,9 @@
 package src.test.java;
 
 import org.junit.jupiter.api.*;
-import src.main.com.sg.dvdlibrary.dao.DvdLibraryDao;
-import src.main.com.sg.dvdlibrary.dao.DvdLibraryDaoFileImpl;
-import src.main.com.sg.dvdlibrary.dto.Dvd;
+import src.main.dao.DvdLibraryDao;
+import src.main.dao.DvdLibraryDaoFileImpl;
+import src.main.dto.Dvd;
 
 import java.io.FileWriter;
 import java.time.LocalDate;
