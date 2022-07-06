@@ -12,7 +12,7 @@ public class Dvd {
     private String userRating;
     private String studio;
 
-    // Coonstructors
+    // Constructors
     public Dvd(String title) {
         this.title = title;
     }
@@ -24,15 +24,10 @@ public class Dvd {
     //the default toString onyl really serialises the objects class name and hashcode, not useful.
     //Overriding this method can allow us to print out all of the object's property values instead,
     //which allows for much faster insight into issues when reading test logs
-    @Override
-    public String toString() {
-        return "Dvd{" + "title=" + title + ", releaseDate=" + releaseDate + ", mpaaRating=" + mpaaRating + ", directorName=" + directorName + ", userRating=" + userRating + ", studio=" + studio + '}';
-    }
 
     // getters and setters
 
     public String getTitle() {
-
         return title;
     }
 
@@ -81,18 +76,11 @@ public class Dvd {
     }
 
 
-    /*
+
     // override hashCode just in case
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 31 * hash + Objects.hashCode(this.title);
-        hash = 31 * hash + Objects.hashCode(this.releaseDate);
-        hash = 31 * hash + Objects.hashCode(this.mpaaRating);
-        hash = 31 * hash + Objects.hashCode(this.directorName);
-        hash = 31 * hash + Objects.hashCode(this.userRating);
-        hash = 31 * hash + Objects.hashCode(this.studio);
-        return hash;
+        return Objects.hash(title, releaseDate, mpaaRating, directorName, userRating, studio);
     }
 
     //Equals and HashCode  - I can now assert on whole DVD objects to check their equality with another
@@ -130,5 +118,11 @@ public class Dvd {
         return true;
     }
 
-     */
+    @Override
+    public String toString() {
+        return "Dvd{" + "title=" + title + ", releaseDate=" + releaseDate + ", mpaaRating=" + mpaaRating + ", directorName=" + directorName + ", userRating=" + userRating + ", studio=" + studio + '}';
+    }
+
+
+
 }

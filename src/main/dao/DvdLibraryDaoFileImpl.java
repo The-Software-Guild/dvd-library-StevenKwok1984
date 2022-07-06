@@ -16,6 +16,9 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
     public DvdLibraryDaoFileImpl() {
         LIBRARY_FILE = "DvdLibrary.txt";
     }
+    public DvdLibraryDaoFileImpl(String testFile) {
+        LIBRARY_FILE = testFile;
+    }
 
     // For testing
     // public DvdLibraryDaoFileImpl(String libraryTextFile) {LIBRARY_FILE = libraryTextFile;}
@@ -93,11 +96,6 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
         writeLib();
         return dvdToEdit;
     }
-
-
-
-
-
 
     /*
       Load and Write Lib session
