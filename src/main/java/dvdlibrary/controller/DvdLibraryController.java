@@ -1,9 +1,9 @@
-package src.main.java.controller;
+package src.main.java.dvdlibrary.controller;
 
-import src.main.dao.DvdLibraryDao;
-import src.main.dao.DvdLibraryDaoException;
-import src.main.dto.Dvd;
-import src.main.ui.DvdLibraryView;
+import src.main.java.dvdlibrary.dao.DvdLibraryDao;
+import src.main.java.dvdlibrary.dao.DvdLibraryDaoException;
+import src.main.java.dvdlibrary.dto.Dvd;
+import src.main.java.dvdlibrary.ui.DvdLibraryView;
 import java.time.LocalDate;
 import java.util.List;
 

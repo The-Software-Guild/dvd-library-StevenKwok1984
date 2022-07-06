@@ -1,4 +1,4 @@
-package src.main.ui;
+package src.main.java.dvdlibrary.ui;
 
 import java.time.LocalDate;
 

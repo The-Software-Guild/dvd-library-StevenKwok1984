@@ -1,6 +1,6 @@
-package src.main.dao;
+package src.main.java.dvdlibrary.dao;
 
-import src.main.dto.Dvd;
+import src.main.java.dvdlibrary.dto.Dvd;
 
 import java.time.LocalDate;
 import java.util.List;

@@ -1,4 +1,4 @@
-package src.main.dto;
+package src.main.java.dvdlibrary.dto;
 
 import java.time.LocalDate;
 import java.util.*;
