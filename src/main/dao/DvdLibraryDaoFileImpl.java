@@ -58,7 +58,10 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
     @Override
     public Dvd changeReleaseDate(String title, LocalDate releaseDate)throws DvdLibraryDaoException {
         loadLib();
-        return dvds.get(title);
+        Dvd dvdToEdit = dvds.get(title);
+        dvdToEdit.setReleaseDate(releaseDate);
+        writeLib();
+        return dvdToEdit;
     }
 
     @Override
