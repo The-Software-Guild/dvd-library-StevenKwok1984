@@ -9,5 +9,8 @@
         <module name="dvd-library-StevenKwok1984" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="dvd-library-StevenKwok1984" target="18" />
+    </bytecodeTargetLevel>
   </component>
 </project>

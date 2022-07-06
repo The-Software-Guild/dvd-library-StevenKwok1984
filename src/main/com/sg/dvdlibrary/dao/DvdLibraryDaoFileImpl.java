@@ -1,5 +1,5 @@
-package src.main.dao;
-import src.main.dto.Dvd;
+package src.main.com.sg.dvdlibrary.dao;
+import src.main.com.sg.dvdlibrary.dto.Dvd;
 
 import java.time.LocalDate;
 import java.util.*;
